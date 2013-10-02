@@ -4,6 +4,9 @@ $conf['cache'] = 1;
 $conf['block_cache'] = 1;
 $conf['preprocess_css'] = 1;
 $conf['preprocess_js'] = 1;
+
+// Forms cache table.
+$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
  
 // Memcache configuration
 $conf += array(
@@ -28,7 +31,12 @@ $conf['memcache_servers'] = array(
 $conf['memcache_bins'] = array(
   'cache' => 'default',
 );
- 
+
+// APC.
+$conf['cache_backends'][] = 'sites/all/modules/contrib/apc/drupal_apc_cache.inc';
+$conf['cache_class_cache'] = 'DrupalAPCCache';
+$conf['cache_class_cache_bootstrap'] = 'DrupalAPCCache';
+
 // Logging
 $conf['syslog_identity'] = 'SITENAME';
  
